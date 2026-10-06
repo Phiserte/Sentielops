@@ -1,0 +1,40 @@
+[project]
+name = "sentinelops-ai"
+version = "0.1.0"
+description = "SentinelOps AI"
+requires-python = ">=3.12"
+
+dependencies = [
+    "fastapi>=0.111.0",
+    "sqlalchemy[asyncio]>=2.0",
+    "alembic>=1.13",
+    "pydantic>=2.0",
+    "uvicorn[standard]>=0.30",
+    "python-dotenv>=1.0",
+    "psycopg[binary]>=3.3.4",
+    "httpx>=0.28.1",
+    "openai>=3.6.0",
+    "psycopg2-binary>=2.9.12",
+]
+
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.alembic]
+script_location = "app/database/migrations"
