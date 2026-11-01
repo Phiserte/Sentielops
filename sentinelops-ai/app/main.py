@@ -3,6 +3,7 @@ import logging
 from fastapi import FastAPI
 
 from app.api.github_webhook import router as github_webhook_router
+from app.api.cli import router as cli_router
 from app.api.security_scan import router as security_scan_router
 from app.database import Base, engine
 
@@ -56,6 +57,11 @@ logger.info("FastAPI application created.")
 
 app.include_router(
     github_webhook_router,
+    prefix="/api/v1",
+)
+
+app.include_router(
+    cli_router,
     prefix="/api/v1",
 )
 

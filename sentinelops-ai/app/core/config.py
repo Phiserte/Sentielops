@@ -18,6 +18,8 @@ GITHUB_WEBHOOK_SECRET = os.getenv("GITHUB_WEBHOOK_SECRET")
 
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
+CLI_API_TOKEN = os.getenv("CLI_API_TOKEN")
+
 # ==========================================================
 # LLM
 # ==========================================================
